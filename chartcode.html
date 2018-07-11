@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/css/uikit.min.css" />
+  
+  <!-- UIkit JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/js/uikit-icons.min.js"></script>
+  
+  
+  
+  <title>My Chart.js Chart</title>
+</head>
+<body>
+    <div class="uk-section uk-section-muted">
+      <div class="uk-container uk-align-center">
+        <div class="uk-flex uk-flex-wrap uk-flex-wrap-stretch">
+                <div class="uk-card uk-card-default uk-card-body uk-text-center uk-card-body"><h3 ">Dental Participation</h3><canvas id="myChart"width="300" ></canvas></div>
+                <div class="uk-card uk-card-default uk-card-body uk-margin-left"><canvas id="donut1" width="600" height="320"></canvas></div>
+         </div>   
+       </div>            
+    </div>
+    
+    
+
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Effra', 'Helvetica';
+    Chart.defaults.global.defaultFontSize = 11;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Subscribed', 'Unsubscribed'],
+        datasets:[{
+          label:'Participation',
+          data:[
+            48,
+            42
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            '#008EB1',
+            '#0CA766',
+            '#0D3F5E',
+            '#FBAA2F',
+            '#E85526',
+            '#94456D'
+           
+          ],
+              borderWidth:1,
+              borderColor:'#fff',
+              hoverBorderWidth:1,
+              hoverBorderColor:'#fff'
+            }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Dental Participation',
+          fontSize:12
+        },
+        title:{
+          display:true,
+          text:'42%',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'bottom',
+          labels:{
+            fontColor:'#0CA766',
+            fontSize:12,
+            fontWeight: 'bold',
+            align:'left'
+            
+          }
+        },
+        layout:{
+          padding:{
+            left:0,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  </script>
+
+
+
+<script>
+        let donut1 = document.getElementById('donut1').getContext('2d');
+    
+        // Global Options
+        Chart.defaults.global.defaultFontFamily = 'Lato';
+        Chart.defaults.global.defaultFontSize = 11;
+        Chart.defaults.global.defaultFontColor = '#777';
+    
+        let Pop2 = new Chart(donut1, {
+          type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+          data:{
+            labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+            datasets:[{
+              label:'Population',
+              data:[
+                617594,
+                181045,
+                153060,
+                106519,
+                105162,
+                95072
+              ],
+              //backgroundColor:'green',
+              backgroundColor:[
+                '#008EB1',
+                '#0CA766',
+                '#0D3F5E',
+                '#FBAA2F',
+                '#E85526',
+                '#94456D'
+               
+              ],
+              borderWidth:1,
+              borderColor:'#fff',
+              hoverBorderWidth:1,
+              hoverBorderColor:'#fff'
+            }]
+          },
+          options:{
+            title:{
+              display:false,
+              text:'Largest Cities In Massachusetts',
+              fontSize:25
+            },
+            legend:{
+              display:false,
+              position:'right',
+              labels:{
+                fontColor:'#000'
+              }
+            },
+            layout:{
+              padding:{
+                left:0,
+                right:0,
+                bottom:0,
+                top:0
+              }
+            },
+            tooltips:{
+              enabled:true
+            }
+          }
+        });
+      </script>
+</body>
+</html>
